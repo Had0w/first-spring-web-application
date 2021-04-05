@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="utf-8"/>
+    <title>Продукт</title>
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{css/style.css}"/>
+</head>
+
+<body>
+
+<span th:text="${'ID: ' + product.id}"/>
+<span th:text="${'Title: ' + product.title}"/>
+<span th:text="${'Price: ' + product.price}"/>
+<br/>
+<div class="button" id="delete-button">
+<form sec:authorize="hasRole('ADMIN')" th:action="@{'/products/show/' + ${product.id} + '/delete'}" th:method="DELETE">
+    <button type="submit" >Удалить</button>
+</form>
+</div>
+</body>
+</html>

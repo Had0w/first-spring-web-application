@@ -1,0 +1,64 @@
+html {
+    background: url("https://pcvector.net/uploads/posts/2018-08/1533326959_low-poly-background-generator-min.png");
+}
+
+#head {
+    width: calc(100% - 20px);
+    height: 30px;
+    background-color: dodgerblue;
+    padding-left: calc(50%);
+    float: left;
+}
+
+#search-field {
+    margin-top: 20px;
+    float: left;
+}
+
+.login {
+    float: left;
+    width: 200px;
+    height: 80px;
+    background-color: dodgerblue;
+    border-radius: 40px;
+    margin-top: 10px;
+    margin-left: 50px;
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+#container {
+    /*width: 300px;*/
+    /*height: 250px;*/
+    /*background-color: dodgerblue;*/
+    /*border-radius: 40px;*/
+    margin-left: 50px;
+    margin-top: 20px;
+    padding-left: 250px;
+    float: left;
+}
+.button {
+    border-radius: 20px;
+    background-color: chartreuse;
+}
+
+#logoutbutton{
+    background-color: red;
+}
+
+#create-button {
+    margin-left: 20px;
+}
+
+#most_popular {
+    width: 210px;
+    height: 150px;
+    background-color: dodgerblue;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: 80px;
+    padding-top: 25px;
+    padding-left: 3px;
+    float : left;
+}
+
