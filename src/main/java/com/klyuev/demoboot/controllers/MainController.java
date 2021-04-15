@@ -1,8 +1,8 @@
 package com.klyuev.demoboot.controllers;
 
+
 import com.klyuev.demoboot.entities.User;
 import com.klyuev.demoboot.services.ProductsService;
-import com.klyuev.demoboot.services.UserService;
 import com.klyuev.demoboot.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,6 +17,7 @@ import java.util.List;
 //@RequestMapping("/main")
 public class MainController {
     private UserServiceImpl userService;
+    private ProductsService productsService;
 
     @Autowired
     public void setUserService(UserServiceImpl userService) {
@@ -62,5 +63,10 @@ public class MainController {
     @ResponseBody
     public User getUser() {
         return userService.findUserByUsername("user3");
+    }
+    @GetMapping("/countOfProducts")
+    @ResponseBody
+    public int getCount() {
+        return productsService.getAllProducts(null).size();
     }
 }
