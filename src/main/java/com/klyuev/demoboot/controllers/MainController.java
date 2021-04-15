@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 //@RequestMapping("/main")
@@ -56,5 +57,10 @@ public class MainController {
         user.setPassword(newPassword);
         userService.addUser(user);
         return "redirect:/products";
+    }
+    @GetMapping("/getUser3")
+    @ResponseBody
+    public User getUser() {
+        return userService.findUserByUsername("user3");
     }
 }
