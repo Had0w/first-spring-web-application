@@ -11,7 +11,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -37,6 +39,14 @@ public class UserServiceImpl implements UserService{
         }
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
                 mapRolesToAuthority(user.getRoles()));
+    }
+
+    public void addUser(User user) {
+        List<Role> roles = new ArrayList<>();
+        Role role = roleRepository.findOneByName("ROLE_USER");
+        roles.add(role);
+        user.setRoles(roles);
+        userRepository.save(user);
     }
 
     private Collection<? extends GrantedAuthority> mapRolesToAuthority(Collection<Role> roles) {

@@ -1,0 +1,119 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+}
+html {height: 100%}
+a {
+    color: #f58b8b;
+    text-decoration: none;
+}
+a.hover {
+    color: #f58b8b;
+}
+
+#left {
+    float: left;
+}
+#right {
+    float: right;
+}
+
+/* Selection block*/
+::selection {background: #f58b8b; color: #fff}
+
+/* Divs */
+body {
+    width: 98%;
+    height: 100%;
+    color: black;
+    background-color: beige;
+    font-size: 1em;
+    font-family: "Segoe UI", sans-serif;
+}
+header, footer {
+    width: 100%;
+    padding-left: 1%;
+    padding-right: 1%;
+    background-color: rgba(8,8,17,0.19);
+    min-height: 50px;
+}
+
+#page-wrap:after {
+    content: "";
+    display: block;
+}
+
+footer, #page-wrap:after {height: 10px}
+
+#page-wrap {
+    height: 94%;
+    margin-bottom: -10px;
+}
+
+header {
+    border-bottom: 2px solid silver;
+    float: top;
+}
+
+.login {
+    float: right;
+    margin-left: 10px;
+    text-decoration: none;
+    color: #f58b8b;
+    padding-top: 5px;
+    font-family: "Comic Sans MS";
+}
+
+.login.hover {
+    color: #f58b8b;
+}
+#container {
+    float: left;
+    height: auto;
+}
+#most_popular {
+    float: right;
+    height: auto;
+}
+
+footer {
+    border-bottom: 2px solid silver;
+    height: 50px;
+    float: end;
+}
+
+.img {
+    width: 25px;
+    height: 25px;
+}
+
+/* Input fields */
+#search {
+    margin-left: 20px;
+    border-radius: 5px;
+    padding-left: 5px;
+    float: left;
+    padding-top: 15px;
+}
+#search:focus {
+    border-color: #f58b8b;
+}
+
+.input-field {
+    border-radius: 5px;
+    border-color: silver;
+}
+.input-field:focus {
+    border-color: #f58b8b;
+}
+/* Buttons */
+.button {
+    border-radius: 5px;
+}
+.button:focus {
+    background-color: #f58b8b;
+}
+.right {
+    float: right;
+}

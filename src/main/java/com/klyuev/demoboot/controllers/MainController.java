@@ -1,5 +1,10 @@
 package com.klyuev.demoboot.controllers;
 
+import com.klyuev.demoboot.entities.User;
+import com.klyuev.demoboot.services.ProductsService;
+import com.klyuev.demoboot.services.UserService;
+import com.klyuev.demoboot.services.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +14,14 @@ import java.security.Principal;
 @Controller
 //@RequestMapping("/main")
 public class MainController {
-//    @GetMapping
+    private UserServiceImpl userService;
+
+    @Autowired
+    public void setUserService(UserServiceImpl userService) {
+        this.userService = userService;
+    }
+
+    //    @GetMapping
 //    public String index() {
 //        return "index";
 //    }
@@ -30,40 +42,14 @@ public class MainController {
 
         return "redirect:/products";
     }
-
-    @GetMapping("/form")
-    public String showForm() {
-        return "simple-form";
+    @GetMapping("/registration")
+    public String registrationForm(Model model) {
+        model.addAttribute("user", new User());
+        return "registration";
     }
-
-    @PostMapping("/form")
-    public String saveForm(@RequestParam(value = "name") String name, @RequestParam(value = "email") String email) {
-        System.out.println(name);
-        System.out.println(email);
-        return "redirect:/index";
-    }
-
-    @GetMapping("/index")
-    public String doSomething() {
-        return "index";
-    }
-
-    @GetMapping("/hello")
-    public String helloRequest(Model model, @RequestParam(value = "name") String name) {
-        model.addAttribute("name", name);
-        return "hello";
-    }
-
-    @GetMapping("/addcat")
-    public String showAddCatForm(Model model) {
-        Cat cat = new Cat(1L, null, null);
-        model.addAttribute("cat", cat);
-        return "cat-form";
-    }
-
-    @PostMapping("/addcat")
-    public String showAddCatForm(@ModelAttribute(value = "cat") Cat cat) {
-        System.out.println(cat.getId() + " " + cat.getName() + " " + cat.getColor());
-        return "redirect:/index";
+    @PostMapping("/registration")
+    public String registrationForm(@ModelAttribute(value = "user") User user) {
+        userService.addUser(user);
+        return "redirect:/products";
     }
 }

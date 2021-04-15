@@ -6,34 +6,32 @@
     <meta charset="utf-8"/>
     <title>Каталог товаров</title>
     <link rel="stylesheet" href="../static/css/style.css" th:href="@{css/style.css}"/>
+    <link href="img/products-ico.ico" rel="shortcut icon" type="image/x-icon"/>
     <script type="text/javascript" th:src="@{css/script.js}"></script>
 </head>
-<br>
-<div id="head">
-    Каталог товаров
-</div>
-<div id="class1">
-    <form id="search-field" th:action="@{/products}" method="get">
-        <input th:value="${word != null} ? ${word}" class="filed" name="word" placeholder="Слово">
-        <input th:value="${minPrice != null} ? ${minPrice}" class="field" name="minPrice" placeholder="минимальная цена">
-        <input th:value="${maxPrice != null} ? ${maxPrice}" class="field" name="maxPrice" placeholder="максимальная цена">
-        <button  type="submit" class="button">Сортировать</button>
-    </form>
-</div>
-<div sec:authorize="isAuthenticated()" class="login">
-     <span th:text="'Пользователь '  + ${username}"></span>
-    <form th:action="@{/logout}" method="post">
-        <button id="logoutbutton" class="button">Выйти</button>
-    </form>
-</div>
-<div sec:authorize="isAnonymous()" class="login">
-    <form th:action="@{/login}" method="post">
-<!--        <input th:bgcolor="dodgerblue" type="text" placeholder="логин" name="login">-->
-<!--        <input th:bgcolor="dodgerblue" type="text" placeholder="пароль" name="password">-->
-        <br/>
-        <button class="button">Войти</button>
-    </form>
-</div>
+<body>
+<div id="page-wrap">
+<header>
+    <div id="search">
+        <form th:action="@{/products}" method="get">
+            <input th:value="${word != null} ? ${word}" class="input-field" name="word" placeholder="Слово">
+            <input th:value="${minPrice != null} ? ${minPrice}" class="input-field" name="minPrice" placeholder="минимальная цена">
+            <input th:value="${maxPrice != null} ? ${maxPrice}" class="input-field" name="maxPrice" placeholder="максимальная цена">
+            <button  type="submit" class="button">Сортировать</button>
+        </form>
+    </div>
+    <div sec:authorize="isAuthenticated()" class="login">
+        <span th:text="'Пользователь '  + ${username}"></span>
+<!--        <form th:action="@{/logout}" method="post">-->
+<!--            <button id="logoutbutton" class="button">Выйти</button>-->
+<!--        </form>-->
+        <span class="login"><a th:href="@{/logout}">Выйти</a></span>
+    </div>
+    <div sec:authorize="isAnonymous()" class="login">
+            <span class="login"><a th:href="@{/login}">Войти</a></span>
+            <span class="login"><a th:href="@{/registration}">Регистрация</a></span>
+    </div>
+</header>
 <div id="container">
     <table class="table table-hover">
         <thead>
@@ -62,11 +60,11 @@
     </form>
     <br/>
     <form th:action="@{'/products'}">
-        <button type="submit" name="page" value="1">1</button>
-        <button type="submit" name="page" value="2">2</button>
-        <button type="submit" name="page" value="3">3</button>
-        <button type="submit" name="page" value="4">4</button>
-        <button type="submit" name="page" value="5">5</button>
+        <button type="submit" class="button" name="page" value="1">1</button>
+        <button type="submit" class="button" name="page" value="2">2</button>
+        <button type="submit" class="button" name="page" value="3">3</button>
+        <button type="submit" class="button" name="page" value="4">4</button>
+        <button type="submit" class="button" name="page" value="5">5</button>
     </form>
 </div>
 <div id="most_popular">
@@ -74,15 +72,11 @@
     <table class="table table-hover">
         <thead>
         <tr>
-<!--            <th>Название товара</th>-->
-<!--            <th>Цена</th>-->
-<!--            <th>Действия</th>-->
         </tr>
         </thead>
         <body>
         <tr th:each="product : ${mostPopularProducts}">
             <td th:text="${product.title}"></td>
-<!--            <td th:text="${product.price}"></td>-->
             <td>
                 <a th:href="@{'/products/show/' + ${product.id}}" th:text="Просмотреть"></a>
             </td>
@@ -90,5 +84,9 @@
         </body>
     </table>
 </div>
+</div>
+<footer>
+    <span class="right">Соц. кнопки<img class="img" src="img/vk-logo.jpg" alt="Группа в Вк" title="Группа в Вк"/></span>
+</footer>
 </body>
 </html>

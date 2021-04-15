@@ -1,0 +1,60 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+}
+
+/* Selection block*/
+::selection {background: #f58b8b; color: #fff}
+
+/* Divs */
+body {
+    width: 98%;
+    height: 100%;
+    color: rgba(0,0,0,0.4);
+    background-color: #f7f7f7;
+    padding-left: 5px;
+    font-size: 1em;
+    font-family: "Segoe UI", sans-serif;
+}
+header, footer {
+    width: 100%;
+    padding: 1%;
+    background-color: #fff;
+    min-height: 50px;
+}
+
+header {
+    border-bottom: 2px solid silver;
+}
+
+.login {
+    float: right;
+    margin-left: 50px;
+}
+
+footer {
+    border-bottom: 2px solid silver;
+}
+/* Input fields */
+#search {
+    margin-left: 20px;
+    border-radius: 5px;
+    padding: 5px;
+    float: left;
+}
+#search:focus {
+    border-color: #f58b8b;
+}
+
+.input-field {
+    border-radius: 5px;
+    border-color: silver;
+}
+.input-field:focus {
+    border-color: #f58b8b;
+}
+/* Buttons */
+.button {
+    border-radius: 5px;
+}
