@@ -12,25 +12,25 @@
 <body>
 <div id="page-wrap">
 <header>
-    <div id="search">
-        <form th:action="@{/products}" method="get">
-            <input th:value="${word != null} ? ${word}" class="input-field" name="word" placeholder="Слово">
-            <input th:value="${minPrice != null} ? ${minPrice}" class="input-field" name="minPrice" placeholder="минимальная цена">
-            <input th:value="${maxPrice != null} ? ${maxPrice}" class="input-field" name="maxPrice" placeholder="максимальная цена">
-            <button  type="submit" class="button">Сортировать</button>
-        </form>
-    </div>
-    <div sec:authorize="isAuthenticated()" class="login">
-        <span th:text="'Пользователь '  + ${username}"></span>
-<!--        <form th:action="@{/logout}" method="post">-->
-<!--            <button id="logoutbutton" class="button">Выйти</button>-->
+<!--    <div id="search">-->
+<!--        <form th:action="@{/products}" method="get">-->
+<!--            <input th:value="${word != null} ? ${word}" class="input-field" name="word" placeholder="Слово">-->
+<!--            <input th:value="${minPrice != null} ? ${minPrice}" class="input-field" name="minPrice" placeholder="минимальная цена">-->
+<!--            <input th:value="${maxPrice != null} ? ${maxPrice}" class="input-field" name="maxPrice" placeholder="максимальная цена">-->
+<!--            <button  type="submit" class="button">Сортировать</button>-->
 <!--        </form>-->
-        <span class="login"><a th:href="@{/logout}">Выйти</a></span>
-    </div>
-    <div sec:authorize="isAnonymous()" class="login">
-            <span class="login"><a th:href="@{/login}">Войти</a></span>
-            <span class="login"><a th:href="@{/registration}">Регистрация</a></span>
-    </div>
+<!--    </div>-->
+<!--    <div sec:authorize="isAuthenticated()" class="login">-->
+<!--        <span th:text="'Пользователь '  + ${username}"></span>-->
+<!--&lt;!&ndash;        <form th:action="@{/logout}" method="post">&ndash;&gt;-->
+<!--&lt;!&ndash;            <button id="logoutbutton" class="button">Выйти</button>&ndash;&gt;-->
+<!--&lt;!&ndash;        </form>&ndash;&gt;-->
+<!--        <span class="login"><a th:href="@{/logout}">Выйти</a></span>-->
+<!--    </div>-->
+<!--    <div sec:authorize="isAnonymous()" class="login">-->
+<!--            <span class="login"><a th:href="@{/login}">Войти</a></span>-->
+<!--            <span class="login"><a th:href="@{/registration}">Регистрация</a></span>-->
+<!--    </div>-->
 </header>
 <div id="container">
     <table class="table table-hover">
@@ -67,26 +67,26 @@
         <button type="submit" class="button" name="page" value="5">5</button>
     </form>
 </div>
-<div id="most_popular">
-    <b>Самые просматриваемые</b><br/>
-    <table class="table table-hover">
-        <thead>
-        <tr>
-        </tr>
-        </thead>
-        <body>
-        <tr th:each="product : ${mostPopularProducts}">
-            <td th:text="${product.title}"></td>
-            <td>
-                <a th:href="@{'/products/show/' + ${product.id}}" th:text="Просмотреть"></a>
-            </td>
-        </tr>
-        </body>
-    </table>
-</div>
+<!--<div id="most_popular">-->
+<!--    <b>Самые просматриваемые</b><br/>-->
+<!--    <table class="table table-hover">-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <body>-->
+<!--        <tr th:each="product : ${mostPopularProducts}">-->
+<!--            <td th:text="${product.title}"></td>-->
+<!--            <td>-->
+<!--                <a th:href="@{'/products/show/' + ${product.id}}" th:text="Просмотреть"></a>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        </body>-->
+<!--    </table>-->
+<!--</div>-->
 </div>
 <footer>
-    <span class="right">Соц. кнопки<img class="img" src="img/vk-logo.jpg" alt="Группа в Вк" title="Группа в Вк"/></span>
+<!--    <span class="right">Соц. кнопки<img class="img" src="img/vk-logo.jpg" alt="Группа в Вк" title="Группа в Вк"/></span>-->
 </footer>
 </body>
 </html>
