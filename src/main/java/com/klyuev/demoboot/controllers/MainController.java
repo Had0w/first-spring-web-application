@@ -64,4 +64,8 @@ public class MainController {
         userService.addUser(user);
         return "redirect:/products";
     }
+    @PostMapping("/products")
+    public String toProducts() {
+        return "products";
+    }
 }
