@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Вход</title>
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{css/style.css}"/>
+    <link href="img/products-ico.ico" rel="shortcut icon" type="image/x-icon"/>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+<form th:action="@{'/products'}">
+    <button id="entry-putton"type="submit">На главную</button>
+</form>
 </body>
 </html>

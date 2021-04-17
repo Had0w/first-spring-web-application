@@ -5,11 +5,11 @@
 }
 html {height: 100%}
 a {
-    color: #f58b8b;
+    color: red;
     text-decoration: none;
 }
 a.hover {
-    color: #f58b8b;
+    color: red;
 }
 
 #left {
@@ -27,7 +27,7 @@ body {
     width: 98%;
     height: 100%;
     color: black;
-    background-color: beige;
+    background-color: rgba(6,22,152,0.53);
     font-size: 1em;
     font-family: "Segoe UI", sans-serif;
 }
@@ -35,7 +35,7 @@ header, footer {
     width: 100%;
     padding-left: 1%;
     padding-right: 1%;
-    background-color: rgba(8,8,17,0.19);
+    background-color: silver;
     min-height: 50px;
 }
 
@@ -60,19 +60,22 @@ header {
     float: right;
     margin-left: 10px;
     text-decoration: none;
-    color: #f58b8b;
+    color: red;
     padding-top: 5px;
     font-family: "Comic Sans MS";
 }
 
 .login.hover {
-    color: #f58b8b;
+    color: red;
 }
 #container {
     float: left;
+    margin-top: 20px;
+    margin-left: 60px;
     height: auto;
 }
 #most_popular {
+    margin-top: 20px;
     float: right;
     height: auto;
 }
@@ -116,4 +119,12 @@ footer {
 }
 .right {
     float: right;
+}
+
+#entry-putton {
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 50%;
 }

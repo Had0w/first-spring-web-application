@@ -1,8 +1,8 @@
 package com.klyuev.demoboot.controllers;
 
+
 import com.klyuev.demoboot.entities.User;
 import com.klyuev.demoboot.services.ProductsService;
-import com.klyuev.demoboot.services.UserService;
 import com.klyuev.demoboot.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,11 +11,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 //@RequestMapping("/main")
 public class MainController {
     private UserServiceImpl userService;
+    private ProductsService productsService;
 
     @Autowired
     public void setUserService(UserServiceImpl userService) {
@@ -37,6 +39,11 @@ public class MainController {
         return "login";
     }
 
+    @PostMapping("/login")
+    public String login() {
+        return "redirect:/products";
+    }
+
     @PostMapping("/identificateTheUser")
     public String identificateTheUser(Principal principal, @ModelAttribute(value = "login") String login,
                                       @ModelAttribute(value = "password") String password) {
@@ -56,5 +63,9 @@ public class MainController {
         user.setPassword(newPassword);
         userService.addUser(user);
         return "redirect:/products";
+    }
+    @PostMapping("/products")
+    public String toProducts() {
+        return "products";
     }
 }
