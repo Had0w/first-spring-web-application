@@ -4,6 +4,7 @@ import com.klyuev.demoboot.entities.Product;
 import com.klyuev.demoboot.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class ProductsService {
         return productRepository.findById(id).get();
     }
 
-    public List<Product> getAllProducts(Specification<Product> specification , PageRequest pageRequest) {
+    public List<Product> getAllProducts(Specification<Product> specification , Pageable pageable) {
         List<Product> products = productRepository.findAll(specification);
         return products;
     }
