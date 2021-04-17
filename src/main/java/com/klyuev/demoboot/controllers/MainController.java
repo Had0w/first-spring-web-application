@@ -39,6 +39,11 @@ public class MainController {
         return "login";
     }
 
+    @PostMapping("/login")
+    public String login() {
+        return "redirect:/products";
+    }
+
     @PostMapping("/identificateTheUser")
     public String identificateTheUser(Principal principal, @ModelAttribute(value = "login") String login,
                                       @ModelAttribute(value = "password") String password) {
@@ -58,15 +63,5 @@ public class MainController {
         user.setPassword(newPassword);
         userService.addUser(user);
         return "redirect:/products";
-    }
-    @GetMapping("/getUser3")
-    @ResponseBody
-    public User getUser() {
-        return userService.findUserByUsername("user3");
-    }
-    @GetMapping("/countOfProducts")
-    @ResponseBody
-    public int getCount() {
-        return productsService.getAllProducts(null).size();
     }
 }

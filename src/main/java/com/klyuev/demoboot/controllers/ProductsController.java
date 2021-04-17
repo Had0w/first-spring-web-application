@@ -6,6 +6,7 @@ import com.klyuev.demoboot.repositories.UserRepository;
 import com.klyuev.demoboot.repositories.specifications.ProductSpecification;
 import com.klyuev.demoboot.services.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
@@ -52,7 +53,7 @@ public class ProductsController {
             page = 1;
         }
         List<Product> mostPopularProducts = productsService.getMostPopular();
-        List<Product> products = productsService.getAllProducts(productSpecification);
+        List<Product> products = productsService.getAllProducts(productSpecification, PageRequest.of(page, 5));
         System.out.println(products.size());
         System.out.println(mostPopularProducts.size());
         long amount = productsService.getAmountOfProducts();
