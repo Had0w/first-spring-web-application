@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+lang="ru">
+<!--      xmlns:th="http://www.thymeleaf.org"-->
+<!--      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">-->
 <head>
     <meta charset="utf-8"/>
     <title>Каталог товаров</title>
@@ -32,41 +33,41 @@
 <!--            <span class="login"><a th:href="@{/registration}">Регистрация</a></span>-->
 <!--    </div>-->
 </header>
-<div id="container">
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>Название товара</th>
-            <th>Цена</th>
-            <th>Действия</th>
-        </tr>
-        </thead>
-        <body>
-        <tr th:each="product : ${products}">
-            <td th:text="${product.title}"></td>
-            <td th:text="${product.price}"></td>
-            <td>
-                <a th:href="@{'/products/show/' + ${product.id}}" th:text="Просмотреть"></a>
-                <a  sec:authorize="hasAnyRole('ADMIN')" th:href="@{'/products/edit/' + ${product.id}}" th:text="Изменить"/>
-            </td>
-        </tr>
-        </body>
-    </table>
-    <span th:text="${'Всего товаров ' + amount}"/>
-    <br/>
-    <br/>
-    <form sec:authorize="hasAnyRole('ADMIN')" th:action="@{'/products/add'}">
-        <button class="button">Создать продукт</button>
-    </form>
-    <br/>
-    <form th:action="@{'/products'}">
-        <button type="submit" class="button" name="page" value="1">1</button>
-        <button type="submit" class="button" name="page" value="2">2</button>
-        <button type="submit" class="button" name="page" value="3">3</button>
-        <button type="submit" class="button" name="page" value="4">4</button>
-        <button type="submit" class="button" name="page" value="5">5</button>
-    </form>
-</div>
+<!--<div id="container">-->
+<!--    <table class="table table-hover">-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>Название товара</th>-->
+<!--            <th>Цена</th>-->
+<!--            <th>Действия</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <body>-->
+<!--        <tr th:each="product : ${products}">-->
+<!--            <td th:text="${product.title}"></td>-->
+<!--            <td th:text="${product.price}"></td>-->
+<!--            <td>-->
+<!--                <a th:href="@{'/products/show/' + ${product.id}}" th:text="Просмотреть"></a>-->
+<!--                <a  sec:authorize="hasAnyRole('ADMIN')" th:href="@{'/products/edit/' + ${product.id}}" th:text="Изменить"/>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        </body>-->
+<!--    </table>-->
+<!--    <span th:text="${'Всего товаров ' + amount}"/>-->
+<!--    <br/>-->
+<!--    <br/>-->
+<!--    <form sec:authorize="hasAnyRole('ADMIN')" th:action="@{'/products/add'}">-->
+<!--        <button class="button">Создать продукт</button>-->
+<!--    </form>-->
+<!--    <br/>-->
+<!--    <form th:action="@{'/products'}">-->
+<!--        <button type="submit" class="button" name="page" value="1">1</button>-->
+<!--        <button type="submit" class="button" name="page" value="2">2</button>-->
+<!--        <button type="submit" class="button" name="page" value="3">3</button>-->
+<!--        <button type="submit" class="button" name="page" value="4">4</button>-->
+<!--        <button type="submit" class="button" name="page" value="5">5</button>-->
+<!--    </form>-->
+<!--</div>-->
 <!--<div id="most_popular">-->
 <!--    <b>Самые просматриваемые</b><br/>-->
 <!--    <table class="table table-hover">-->
